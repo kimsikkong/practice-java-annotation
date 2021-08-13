@@ -21,7 +21,7 @@ public class UserDto {
     Integer age;
 
     @NotBlank(groups = OnCreate.class)
-    @Max(255)
+    @Length(max = 255)
     String address;
 
     @NotBlank(groups = OnCreate.class)
