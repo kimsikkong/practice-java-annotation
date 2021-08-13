@@ -3,10 +3,7 @@ package com.example.practicejavaannotation.dto.request;
 import lombok.Value;
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 @Value
 public class UserDto {
@@ -15,7 +12,7 @@ public class UserDto {
     @Length(min = 1, max = 10)
     String name;
 
-    @NotBlank(groups = OnCreate.class)
+    @NotNull(groups = OnCreate.class)
     @Min(1)
     @Max(100)
     Integer age;
