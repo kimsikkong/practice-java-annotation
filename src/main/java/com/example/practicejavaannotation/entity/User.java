@@ -1,5 +1,6 @@
 package com.example.practicejavaannotation.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -18,6 +19,7 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     Collection<UserProfile> userProfiles;
 

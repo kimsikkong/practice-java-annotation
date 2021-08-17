@@ -2,7 +2,6 @@ package com.example.practicejavaannotation.dto.request;
 
 import com.example.practicejavaannotation.entity.User;
 import lombok.Getter;
-import lombok.Value;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.*;
@@ -37,17 +36,16 @@ public class UserDto extends BaseDto<User> {
     }
 
     @Override
-    public User convert() {
+    public User create() {
         return new User(name, age, address, phoneNumber, Instant.now().getEpochSecond());
     }
 
     @Override
-    public User convert(User user) {
+    public void update(User user) {
         if (name != null) user.setName(name);
         if (age != null) user.setAge(age);
         if (address != null) user.setAddress(address);
         if (phoneNumber != null) user.setPhoneNumber(phoneNumber);
-        return user;
     }
 
     @Override
