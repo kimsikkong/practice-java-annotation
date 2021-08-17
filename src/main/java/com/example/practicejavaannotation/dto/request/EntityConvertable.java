@@ -2,7 +2,7 @@ package com.example.practicejavaannotation.dto.request;
 
 public interface EntityConvertable<T> {
 
-    T convert();
+    T create();
 
-    T convert(T t);
+    void update(T t);
 }
