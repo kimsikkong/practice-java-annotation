@@ -25,15 +25,13 @@ public class UserController {
         return Mono.fromCallable(() -> userService.read(userId));
     }
 
-    @Validated(OnCreate.class)
     @PostMapping
-    public Mono<User> create(@Valid  @RequestBody UserDto userDto) {
+    public Mono<User> create(@Validated(OnCreate.class) @RequestBody UserDto userDto) {
         return Mono.fromCallable(() -> userService.create(userDto));
     }
 
-    @Validated(OnUpdate.class)
     @PatchMapping("/{userId}")
-    public Mono<User> update(@PathVariable Long userId, @Valid @RequestBody UserDto userDto) {
+    public Mono<User> update(@PathVariable Long userId, @Validated(OnUpdate.class) @RequestBody UserDto userDto) {
         return Mono.fromCallable(() -> userService.update(userId, userDto));
     }
 
